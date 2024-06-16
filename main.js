@@ -12,6 +12,7 @@ for (let item of newData) {
 
   const h1 = document.createElement('h1');
   h1.innerHTML = header;
+  h1.id = header;
 
   const span = document.createElement('span');
   span.innerHTML = answer;
@@ -19,3 +20,17 @@ for (let item of newData) {
   app.appendChild(h1);
   app.appendChild(span);
 }
+
+const inputElement = document.querySelector('#input');
+const allHeaders = document.querySelectorAll('h1');
+
+function performSearchAndMove(event) {
+  const searchTerm = event.target.value.toLowerCase();
+  console.log(searchTerm);
+
+  allHeaders.forEach((header) => {
+    if (header.id.toLowerCase().includes(searchTerm)) header.scrollIntoView();
+  });
+}
+
+inputElement.addEventListener('input', performSearchAndMove);

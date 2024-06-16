@@ -1,6 +1,5 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
@@ -21,11 +20,25 @@ body {
 }
 
 h1 {
-  font-size: 1.4em;
-  line-height: 1.1;
+  font-size: 0.7em;
+}
+
+span,
+p {
+  font-size: 0.6em;
 }
 
 #app {
   margin: 0 auto;
   padding: 0 20px;
+}
+
+#input {
+  border: 1px solid white;
+  background-color: transparent;
+  border-radius: 5px;
+  padding: 6px;
+  position: fixed;
+  top: 10px;
+  right: 10px;
 }
