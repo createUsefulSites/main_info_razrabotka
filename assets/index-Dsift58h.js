@@ -1,4 +1,4 @@
-(function(){const i=document.createElement("link").relList;if(i&&i.supports&&i.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))n(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const o of t.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&n(o)}).observe(document,{childList:!0,subtree:!0});function r(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?t.credentials="include":e.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function n(e){if(e.ep)return;e.ep=!0;const t=r(e);fetch(e.href,t)}})();const l=`
+(function(){const i=document.createElement("link").relList;if(i&&i.supports&&i.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))r(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const a of t.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&r(a)}).observe(document,{childList:!0,subtree:!0});function n(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?t.credentials="include":e.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function r(e){if(e.ep)return;e.ep=!0;const t=n(e);fetch(e.href,t)}})();const l=`
 1) Дайте понятие системы контроля версий. Приведите примеры
 систем контроля версий.
 Система контроля версий (СКВ) - это инструмент, используемый для
@@ -1254,5 +1254,5 @@ Terraform: Инструмент для управления инфраструк
 таких как Apache Maven с его плагином для распределенной сборки, или
 системы непрерывной интеграции, такой как Jenkins, с возможностью
 параллельной сборки на нескольких агентах.
-`,s=document.querySelector("#app"),c=l.split(/\d+\) /).slice(1);for(let a of c){const[i,r]=a.replace(`
-`,"DELETE").split("DELETE"),n=document.createElement("h1");n.innerHTML=i;const e=document.createElement("span");e.innerHTML=r,s.appendChild(n),s.appendChild(e)}
+`,s=document.querySelector("#app"),c=l.split(/\d+\) /).slice(1);for(let o of c){const[i,n]=o.replace(`
+`,"DELETE").split("DELETE"),r=document.createElement("h1");r.innerHTML=i,r.id=i;const e=document.createElement("span");e.innerHTML=n,s.appendChild(r),s.appendChild(e)}const u=document.querySelector("#input"),m=document.querySelectorAll("h1");function d(o){const i=o.target.value.toLowerCase();console.log(i),m.forEach(n=>{n.id.toLowerCase().includes(i)&&n.scrollIntoView()})}u.addEventListener("input",d);
