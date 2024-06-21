@@ -5,7 +5,7 @@ import { data } from './data';
 
 const app = document.querySelector('#app');
 
-const newData = data.split(/\d+\) /).slice(1);
+const newData = data.split(/\d+\. /).slice(1);
 
 var a = {
   Ё: 'YO',
@@ -85,6 +85,10 @@ function transliterate(word) {
     .join('');
 }
 
+String.prototype.removeAllExceptWords = function () {
+  return this.replace(/\W+/g, '').toLowerCase();
+};
+
 for (let item of newData) {
   const [header, answer] = item.replace('\n', 'DELETE').split('DELETE');
 
@@ -103,11 +107,14 @@ const inputElement = document.querySelector('#input');
 const allHeaders = document.querySelectorAll('h1');
 
 function performSearchAndMove(event) {
-  const searchTerm = event.target.value.toLowerCase();
-  console.log(searchTerm);
+  const searchTerm = event.target.value.removeAllExceptWords();
 
   allHeaders.forEach((header) => {
-    if (header.id.toLowerCase().includes(searchTerm)) header.scrollIntoView();
+    const preparedHeader = header.id.removeAllExceptWords();
+
+    if (preparedHeader.includes(searchTerm)) {
+      header.scrollIntoView();
+    }
   });
 }
 
