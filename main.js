@@ -4,8 +4,14 @@ import './style.css';
 import { data } from './data';
 
 const app = document.querySelector('#app');
+const buttonsWrapper = document.querySelector('.wrapper');
 
-const newData = data.split(/\d+\. /).slice(1);
+const newData = data.split(/\d+.	/).slice(1);
+
+const inputElementDiv = document.querySelector('#input_div');
+const deleteButton = document.querySelector('.delete');
+const inputElement = document.querySelector('#input');
+const allHeaders = document.querySelectorAll('h1');
 
 var a = {
   Ё: 'YO',
@@ -103,9 +109,6 @@ for (let item of newData) {
   app.appendChild(span);
 }
 
-const inputElement = document.querySelector('#input');
-const allHeaders = document.querySelectorAll('h1');
-
 function performSearchAndMove(event) {
   const searchTerm = event.target.value.removeAllExceptWords();
 
@@ -118,4 +121,20 @@ function performSearchAndMove(event) {
   });
 }
 
-inputElement.addEventListener('input', performSearchAndMove);
+function searchHandlerDiv(responce) {
+  console.log(responce);
+}
+
+buttonsWrapper.addEventListener('click', (e) => {
+  if (e.target.tagName === 'LI') {
+    inputElementDiv.innerHTML = inputElementDiv.innerHTML + e.target.innerHTML.toLowerCase();
+    searchHandlerDiv(inputElementDiv.innerHTML);
+  }
+});
+
+deleteButton.addEventListener('click', () => {
+  if (inputElementDiv.innerHTML === '') return;
+  inputElementDiv.innerHTML = inputElementDiv.innerHTML.slice(0, -1);
+});
+
+// inputElement.addEventListener('input', performSearchAndMove);
